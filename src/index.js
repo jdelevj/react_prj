@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { MostPointsScored } from './components/pages/MostPointsScored';
 import { MostPointsScoredOverall } from './components/pages/MostPointsScoredOverall';
+import { HomePage } from './components/pages/HomePage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -13,6 +14,7 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />}>
+          <Route path="" element={<HomePage/>} /> 
           <Route path="/most-points-scored" element={<MostPointsScored />} />
           <Route path="/most-points-scored-overall" element={<MostPointsScoredOverall />} />
         </Route>
