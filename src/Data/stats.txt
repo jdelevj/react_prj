@@ -4,7 +4,8 @@ Antony Davis, Lakers, 1740,	11,	6, 1
 Kevin Durant, Suns, 1560, 30, 12, 11
 Chris Paul, Warriors, 1440,	11,	5, 1
 Paul George, Clippers, 2160, 25, 8, 5
-LeBron James, Lakers, 1800,	25,	11,	10
+LeBron James, Lakers, 1800,	25,	11.1,	10
 Jimmy Buttler, Heat, 2280, 20, 9, 5
-Sasha Vezenkov, Kings, 900, 11, 4, 2
+Sasha Vez5enkov, Kings, 900, 11, 4, 2
+
 Duncan Robinson, Heat, 1020, 14, 3,	3
