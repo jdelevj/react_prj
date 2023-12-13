@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { StatisticsContext } from "../../Main";
 
 export function FileBrowser() {
+    const { setStatistics } = useContext(StatisticsContext);
     const [errors, setErrors] = useState([]);
     let parsingErrors = [];
     function handleFileBrowse(event) {
@@ -14,17 +16,19 @@ export function FileBrowser() {
             if (result) {
                 const lines = result.split(/\r\n|\r|\n/);
                 lines.forEach((line, index) => {
-                    if(line.trim()){
+                    if (line.trim()) {
                         performanceStats.push(convertStringToPlayerPeformance(line, index + 1));
                     }
-                    
+
                 });
                 console.log(performanceStats, parsingErrors);
 
+                setStatistics(performanceStats);
+
             } else {
                 parsingErrors.push('Empty file loaded');
-            } 
-                setErrors(parsingErrors);
+            }
+            setErrors(parsingErrors);
         }
 
     }
@@ -49,27 +53,27 @@ export function FileBrowser() {
             parsingErrors.push(`Error at line ${lineNumber}: empty team field`);
             return;
         }
-        
+
         const timePlayed = parseInt(tokens[2], 10);
-        if ( !Number.isInteger(+tokens[2].trim()) || timePlayed <= 0 ) {
+        if (!Number.isInteger(+tokens[2].trim()) || timePlayed <= 0) {
             parsingErrors.push(`Error at line ${lineNumber}: wrong Time Played field`);
             return;
         }
 
         const pointsScored = parseInt(tokens[3], 10);
-        if ( !Number.isInteger(+tokens[3].trim()) || pointsScored <= 0 ) {
+        if (!Number.isInteger(+tokens[3].trim()) || pointsScored <= 0) {
             parsingErrors.push(`Error at line ${lineNumber}: wrong Points field`);
             return;
         }
 
         const rebounds = parseInt(tokens[4], 10);
-        if ( !Number.isInteger(+tokens[4].trim()) || rebounds <= 0 ) {
+        if (!Number.isInteger(+tokens[4].trim()) || rebounds <= 0) {
             parsingErrors.push(`Error at line ${lineNumber}: wrong Rebounds field`);
             return;
         }
 
         const assists = parseInt(tokens[5], 10);
-        if ( !Number.isInteger(+tokens[5].trim()) || assists <= 0 ) {
+        if (!Number.isInteger(+tokens[5].trim()) || assists <= 0) {
             parsingErrors.push(`Error at line ${lineNumber}: wrong Assists field`);
             return;
 
@@ -81,14 +85,14 @@ export function FileBrowser() {
 
     }
 
-    
+
 
     return (
         <div>
             <input type="file" onChange={handleFileBrowse} />
             {errors.map((error, index) => <div key={index}>{error}</div>)}
         </div>
-        
+
     )
 }
 
