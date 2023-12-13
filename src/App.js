@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import './App.css';
 import { NavMenu } from './components/organisms/NavMenu';
 import { Outlet } from 'react-router-dom';

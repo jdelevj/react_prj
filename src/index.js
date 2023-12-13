@@ -1,26 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import Main from './Main';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { MostPointsScored } from './components/pages/MostPointsScored';
-import { MostPointsScoredOverall } from './components/pages/MostPointsScoredOverall';
-import { HomePage } from './components/pages/HomePage';
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />}>
-          <Route path="" element={<HomePage/>} /> 
-          <Route path="/most-points-scored" element={<MostPointsScored />} />
-          <Route path="/most-points-scored-overall" element={<MostPointsScoredOverall />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
-  </React.StrictMode>
+  <Main />
 );
 
 // If you want to start measuring performance in your app, pass a function
